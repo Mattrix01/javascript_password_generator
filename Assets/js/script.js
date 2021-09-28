@@ -14,6 +14,7 @@ function generatePassword() {
   }
   //question 2 lowercase included?
   const lowerCase = prompt("Would you like to include lowercase characters?");
+  if ()
   //question 3 uppercase uncluded?
   const upperCase = prompt("Would you like to include uppercase characters?");
   //question 4 include numerical?
@@ -83,6 +84,9 @@ function generatePassword() {
   //  const special = [" ","!","\"","#","$","%","&","'","(",")","\","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\","]","^","\","_","`","{","|","}","~"];
 
   combinedCriteria = [];
+  // example of user saying yes to lower and upper and no to rest below
+  // make this, for each of the proimpt I have gotten from user, i need to adjust this array(add more to it) if the user has said yes to any of them.
+  // if user has said yes to prompts, it gets added to array.
   combinedCriteria = combinedCriteria.concat(lower, upper);
 
   console.log(combinedCriteria);
