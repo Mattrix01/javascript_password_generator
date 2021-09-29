@@ -1,3 +1,4 @@
+// My Criteria Arrays
 const lower = [
   "a",
   "b",
@@ -93,7 +94,6 @@ const special = [
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// PLEASE ADD ALL YOUR CODE BELOW -
 function generatePassword() {
   combinedCriteria = []; //my empty array to fill up
   // example of user saying yes to lower and upper and no to rest below
@@ -142,8 +142,6 @@ function generatePassword() {
     window.alert("Invalid number, please try again within 8 to 128 characters");
   }
 
-  //plan selections above, true or false if yes or no etc. or check if I am using confirm prompts intead.
-
   // passwordLength = 15;
 
   // const randomElement =
@@ -151,7 +149,6 @@ function generatePassword() {
 
   // console.log(randomElement);
 
-  // I want to define a new variable to my password as empty string
   // enter into for loop which will iterate untill the index has hit that password length.
   // for each iteration, the string my password will have a new character added onto it.
   myPassword = "";
@@ -176,5 +173,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// how can i move stuff from one array to another.
