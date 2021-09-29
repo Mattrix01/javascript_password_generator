@@ -100,9 +100,9 @@ function generatePassword() {
   // make this, for each of the proimpt I have gotten from user, i need to adjust this array(add more to it) if the user has said yes to any of them.
   // if user has said yes to prompts, it gets added to array.
   // concanate will combine the two strings together.
-  // combinedCriteria = combinedCriteria.concat(lower, upper); //can get rid of this when sorted above array.
+  // combinedCriteria = combinedCriteria.concat(upper); //can get rid of this when sorted above array.
 
-  console.log(combinedCriteria);
+  // console.log(combinedCriteria);
   const characters = prompt(
     "What is the length of your password? Please choose between 8 and 128 characters"
   );
@@ -115,20 +115,29 @@ function generatePassword() {
       "Would you like to include lowercase characters?"
     );
     if (lowerCase) {
-      //figure out how to get things from the lower case array into the empty array below, go to my above combinedCriteria array!
+      combinedCriteria = combinedCriteria.concat(lower);
     }
     //question 3 uppercase uncluded?
-    const upperCase = confrim(
+    const upperCase = confirm(
       "Would you like to include uppercase characters?"
     );
+    if (upperCase) {
+      combinedCriteria = combinedCriteria.concat(upper);
+    }
     //question 4 include numerical?
     const numericals = confirm(
       "Would you like to include numerical characters?"
     );
+    if (numericals) {
+      combinedCriteria = combinedCriteria.concat(number);
+    }
     //question 5 include special characters?
     const specialCharacters = confirm(
       "Would you like to include special characters?"
     );
+    if (specialCharacters) {
+      combinedCriteria = combinedCriteria.concat(special);
+    }
   } else {
     window.alert("Invalid number, please try again within 8 to 128 characters");
   }
@@ -137,8 +146,8 @@ function generatePassword() {
 
   // passwordLength = 15;
 
-  const randomElement =
-    combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)];
+  // const randomElement =
+  //   combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)];
 
   // console.log(randomElement);
 
@@ -152,7 +161,9 @@ function generatePassword() {
       combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)]; // return a single random character everytime
   }
   // once the loop completed the variable will be (password length)characters long.
-  console.log(myPassword);
+  // console.log(myPassword);
+  // output of the function is below
+  return myPassword;
 }
 
 //  Write password to the #password input -
