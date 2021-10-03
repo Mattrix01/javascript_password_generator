@@ -91,6 +91,8 @@ const special = [
   "~",
 ];
 
+const myPasswordFail = "Try again!";
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -140,6 +142,7 @@ function generatePassword() {
     }
   } else {
     window.alert("Invalid number, please try again within 8 to 128 characters");
+    return myPasswordFail;
   }
 
   // passwordLength = 15;
