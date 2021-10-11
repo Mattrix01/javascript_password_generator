@@ -93,18 +93,11 @@ const special = [
 
 const myPasswordFail = "Try again!";
 
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  combinedCriteria = []; //my empty array to fill up
-  // example of user saying yes to lower and upper and no to rest below
-  // make this, for each of the proimpt I have gotten from user, i need to adjust this array(add more to it) if the user has said yes to any of them.
-  // if user has said yes to prompts, it gets added to array.
-  // concanate will combine the two strings together.
-  // combinedCriteria = combinedCriteria.concat(upper); //can get rid of this when sorted above array.
+  combinedCriteria = [];
 
-  // console.log(combinedCriteria);
   const characters = prompt(
     "What is the length of your password? Please choose between 8 and 128 characters"
   );
@@ -112,28 +105,28 @@ function generatePassword() {
   if (charactersInt >= 8 && charactersInt <= 128) {
     passwordLength = charactersInt;
 
-    //question 2 lowercase included?
+    //question 2 lowercase included
     const lowerCase = confirm(
       "Would you like to include lowercase characters?"
     );
     if (lowerCase) {
       combinedCriteria = combinedCriteria.concat(lower);
     }
-    //question 3 uppercase uncluded?
+    //question 3 uppercase uncluded
     const upperCase = confirm(
       "Would you like to include uppercase characters?"
     );
     if (upperCase) {
       combinedCriteria = combinedCriteria.concat(upper);
     }
-    //question 4 include numerical?
+    //question 4 include numerical
     const numericals = confirm(
       "Would you like to include numerical characters?"
     );
     if (numericals) {
       combinedCriteria = combinedCriteria.concat(number);
     }
-    //question 5 include special characters?
+    //question 5 include special characters
     const specialCharacters = confirm(
       "Would you like to include special characters?"
     );
@@ -145,28 +138,17 @@ function generatePassword() {
     return myPasswordFail;
   }
 
-  // passwordLength = 15;
-
-  // const randomElement =
-  //   combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)];
-
-  // console.log(randomElement);
-
-  // enter into for loop which will iterate untill the index has hit that password length.
-  // for each iteration, the string my password will have a new character added onto it.
   myPassword = "";
   for (let i = 0; i < passwordLength; i++) {
     myPassword =
       myPassword +
       combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)]; // return a single random character everytime
   }
-  // once the loop completed the variable will be (password length)characters long.
-  // console.log(myPassword);
-  // output of the function is below
+
   return myPassword;
 }
 
-//  Write password to the #password input -
+//  Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -174,5 +156,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// event listener to generate button
 generateBtn.addEventListener("click", writePassword);
