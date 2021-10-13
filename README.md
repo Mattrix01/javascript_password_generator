@@ -27,3 +27,5 @@ Deployed application - https://mattrix01.github.io/javascript_password_generator
 - Each time the user said yes, I added that container into the combined array.
 
 - I then returned the function value so that it gets displayed in the box via the password variable.
+
+![webpage screenshot](Assets/Images/password-generated-screenshot.png)

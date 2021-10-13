@@ -105,28 +105,27 @@ function generatePassword() {
   if (charactersInt >= 8 && charactersInt <= 128) {
     passwordLength = charactersInt;
 
-    //question 2 lowercase included
     const lowerCase = confirm(
       "Would you like to include lowercase characters?"
     );
     if (lowerCase) {
       combinedCriteria = combinedCriteria.concat(lower);
     }
-    //question 3 uppercase uncluded
+
     const upperCase = confirm(
       "Would you like to include uppercase characters?"
     );
     if (upperCase) {
       combinedCriteria = combinedCriteria.concat(upper);
     }
-    //question 4 include numerical
+
     const numericals = confirm(
       "Would you like to include numerical characters?"
     );
     if (numericals) {
       combinedCriteria = combinedCriteria.concat(number);
     }
-    //question 5 include special characters
+
     const specialCharacters = confirm(
       "Would you like to include special characters?"
     );
@@ -148,7 +147,6 @@ function generatePassword() {
   return myPassword;
 }
 
-//  Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -156,5 +154,4 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// event listener to generate button
 generateBtn.addEventListener("click", writePassword);
