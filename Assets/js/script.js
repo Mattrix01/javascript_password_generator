@@ -104,37 +104,39 @@ function generatePassword() {
   const charactersInt = parseInt(characters);
   if (charactersInt >= 8 && charactersInt <= 128) {
     passwordLength = charactersInt;
-
-    const lowerCase = confirm(
-      "Would you like to include lowercase characters?"
-    );
-    if (lowerCase) {
-      combinedCriteria = combinedCriteria.concat(lower);
-    }
-
-    const upperCase = confirm(
-      "Would you like to include uppercase characters?"
-    );
-    if (upperCase) {
-      combinedCriteria = combinedCriteria.concat(upper);
-    }
-
-    const numericals = confirm(
-      "Would you like to include numerical characters?"
-    );
-    if (numericals) {
-      combinedCriteria = combinedCriteria.concat(number);
-    }
-
-    const specialCharacters = confirm(
-      "Would you like to include special characters?"
-    );
-    if (specialCharacters) {
-      combinedCriteria = combinedCriteria.concat(special);
-    }
   } else {
     window.alert("Invalid number, please try again within 8 to 128 characters");
     return myPasswordFail;
+  }
+
+  let userSelectedCharOption = false;
+  const lowerCase = confirm("Would you like to include lowercase characters?");
+  if (lowerCase) {
+    userSelectedCharOption = true;
+    combinedCriteria = combinedCriteria.concat(lower);
+  }
+
+  const upperCase = confirm("Would you like to include uppercase characters?");
+  if (upperCase) {
+    userSelectedCharOption = true;
+    combinedCriteria = combinedCriteria.concat(upper);
+  }
+  const numericals = confirm("Would you like to include numerical characters?");
+  if (numericals) {
+    userSelectedCharOption = true;
+    combinedCriteria = combinedCriteria.concat(number);
+  }
+
+  const specialCharacters = confirm(
+    "Would you like to include special characters?"
+  );
+  if (specialCharacters) {
+    userSelectedCharOption = true;
+    combinedCriteria = combinedCriteria.concat(special);
+  }
+
+  if (!userSelectedCharOption) {
+    return "Try selecting a character option next time...";
   }
 
   myPassword = "";
@@ -143,14 +145,12 @@ function generatePassword() {
       myPassword +
       combinedCriteria[Math.floor(Math.random() * combinedCriteria.length)]; // return a single random character everytime
   }
-
   return myPassword;
 }
 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
