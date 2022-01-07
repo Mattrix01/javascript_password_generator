@@ -1,7 +1,5 @@
 # javascript_password_generator
 
-# semantic-html-refactor
-
 ## Description
 
 Used javascript to generate random passwords using the parameters inputted by the user.
